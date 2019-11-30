@@ -18,6 +18,9 @@ export default (appInfo: EggAppInfo) => {
     url: 'mongodb://129.204.95.132/blog',
     options: {},
   };
+  config.assets = {
+    publicPath: '/public/',
+  };
   config.security = {
     csrf: false,
   };

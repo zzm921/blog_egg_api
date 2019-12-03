@@ -1,12 +1,19 @@
 import { Service } from 'egg';
 import { IArticlesModel, IArticles } from '../model/Articles';
+
+export interface ListResponse {
+    count: number;
+    list: IArticles[];
+}
 /**
  * Test Service
  */
 export default class Articles extends Service {
 
-    public async getList(): Promise<IArticles[]> {
-        return this.ctx.model.Articles.find();
+    public async getList(): Promise<ListResponse> {
+        const list = await this.ctx.model.Articles.find({});
+        const count = await this.ctx.model.Articles.count({});
+        return { list, count };
     }
     public async sayHi(name: string) {
         return `hi, ${name}`;

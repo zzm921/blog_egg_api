@@ -10,16 +10,16 @@ export default class ArticlesController extends Controller {
     // get 新增
     public async new() {
         const { ctx } = this;
-        const { title, content, author, description, head_image } = ctx.query;
-        const result = await ctx.service.articles.create({ title, content, author, description, head_image });
+        const { title, content, author, description, head_image, tagid } = ctx.query;
+        const result = await ctx.service.articles.create({ title, content, author, description, head_image, tagid });
         ctx.body = result;
     }
 
     // post 新增
     public async create() {
         const { ctx } = this;
-        const { title, content, author, description, head_image } = ctx.request.body;
-        const result = await ctx.service.articles.create({ title, content, author, description, head_image });
+        const { title, content, author, description, head_image, tagid } = ctx.request.body;
+        const result = await ctx.service.articles.create({ title, content, author, description, head_image, tagid });
         ctx.body = result;
     }
 
@@ -34,16 +34,16 @@ export default class ArticlesController extends Controller {
     public async edit() {
         const { ctx } = this;
         const { id } = ctx.params;
-        const { title, content, author, description, head_image } = ctx.query;
-        ctx.body = await ctx.service.articles.update(id, { title, content, author, description, head_image });
+        const { title, content, author, description, head_image, tagid } = ctx.query;
+        ctx.body = await ctx.service.articles.update(id, { title, content, author, description, head_image, tagid });
     }
 
     // post 修改
     public async update() {
         const { ctx } = this;
         const { id } = ctx.params;
-        const { title, content, author, description, head_image } = ctx.request.body;
-        ctx.body = await ctx.service.articles.update(id, { title, content, author, description, head_image });
+        const { title, content, author, description, head_image, tagid } = ctx.request.body;
+        ctx.body = await ctx.service.articles.update(id, { title, content, author, description, head_image, tagid });
     }
     // 删除
     public async destroy() {

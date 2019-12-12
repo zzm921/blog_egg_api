@@ -6,7 +6,6 @@ export default (appInfo: EggAppInfo) => {
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = 'zhexia';
-  config.middleware = [ 'cors' ];
   // add your egg config in here
   config.middleware = [];
 

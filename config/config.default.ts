@@ -24,6 +24,7 @@ export default (appInfo: EggAppInfo) => {
   config.security = {
     csrf: false,
   };
+  config.logger = { consoleLevel: 'DEBUG' };
 
   // the return config will combines to EggAppConfig
   return {
